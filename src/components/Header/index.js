@@ -12,8 +12,8 @@ const Header = props => {
   }
 
   const {activeTab} = props
-  const activeHome = activeTab === 'HOME' ? 'active' : ''
-  const activeCart = activeTab === 'CART' ? 'active' : ''
+  const activeHome = activeTab !== 'HOME' ? 'active' : ''
+  const activeCart = activeTab !== 'CART' ? 'active' : ''
 
   return (
     <nav className="nav-header">
@@ -21,7 +21,7 @@ const Header = props => {
         <Link to="/">
           <img
             className="website-logo"
-            src="https://res.cloudinary.com/dwyoocqij/image/upload/v1632727627/Vector_ibzmon.png"
+            src="https://res.cloudinary.com/dqnh9af86/image/upload/v1633077683/Frame_274_bxujyh.png"
             alt="website logo"
           />
         </Link>

@@ -27,6 +27,7 @@ class PopularRestaurants extends Component {
     isLoading: false,
     selectedSortByValue: sortByOptions[1].value,
     activePage: 1,
+    searchInput: '',
   }
 
   componentDidMount() {
@@ -103,42 +104,66 @@ class PopularRestaurants extends Component {
     }
   }
 
+  onChangeSearchInput = input => {
+    this.setState({searchInput: input})
+  }
+
   renderRestaurants = () => {
-    const {restaurantList, selectedSortByValue, activePage} = this.state
+    const {
+      restaurantList,
+      selectedSortByValue,
+      activePage,
+      searchInput,
+    } = this.state
+    const updatedList = restaurantList.filter(each =>
+      each.name.toLowerCase().includes(searchInput.toLowerCase()),
+    )
     return (
       <>
         <RestaurantHeader
           selectedSortByValue={selectedSortByValue}
           sortByOptions={sortByOptions}
           updateSelectedSortByValue={this.updateSelectedSortByValue}
+          onChangeSearchInput={this.onChangeSearchInput}
         />
         <hr className="line" />
-        <ul className="restaurants-list">
-          {restaurantList.map(restaurant => (
-            <RestaurantCard restaurantData={restaurant} key={restaurant.id} />
-          ))}
-        </ul>
-        <div className="pagination">
-          <button
-            testid="pagination-left-button"
-            className="button"
-            type="button"
-            onClick={this.onClickLeftArrow}
-          >
-            <RiArrowDropLeftLine className="arrow" />
-          </button>
-          <h1 testid="active-page-number" className="page-numbers">
-            {activePage}
-          </h1>
-          <button
-            testid="pagination-right-button"
-            className="button"
-            type="button"
-            onClick={this.onClickRightArrow}
-          >
-            <RiArrowDropRightLine className="arrow" />
-          </button>
-        </div>
+        {updatedList.length === 0 ? (
+          <div className="no-restaurants-container">
+            <h1 className="no-res-heading">No Restaurants Found</h1>
+          </div>
+        ) : (
+          <>
+            <ul className="restaurants-list">
+              {updatedList.map(restaurant => (
+                <RestaurantCard
+                  restaurantData={restaurant}
+                  key={restaurant.id}
+                />
+              ))}
+            </ul>
+            <div className="pagination">
+              <button
+                testid="pagination-left-button"
+                className="button"
+                type="button"
+                onClick={this.onClickLeftArrow}
+              >
+                <RiArrowDropLeftLine className="arrow" />
+              </button>
+              <h1 testid="active-page-number" className="page-numbers">
+                {activePage}
+              </h1>
+              <button
+                testid="pagination-right-button"
+                className="button"
+                type="button"
+                onClick={this.onClickRightArrow}
+              >
+                <RiArrowDropRightLine className="arrow" />
+              </button>
+            </div>
+          </>
+        )}
       </>
     )
   }

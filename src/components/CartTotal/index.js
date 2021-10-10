@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom'
+import {BiRupee} from 'react-icons/bi'
 
 import CartContext from '../../context/CartContext'
 
@@ -20,7 +21,7 @@ const CartTotal = () => (
             <h1 className="order-total-value">Order Total:</h1>
             <div className="total-container">
               <p testid="total-price" className="total">
-                {totalOrderCost}
+                <BiRupee /> {totalOrderCost}
               </p>
               <Link to="/payment">
                 <button type="button" className="order-button">

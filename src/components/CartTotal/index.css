@@ -10,6 +10,7 @@
 .cart-summary-container {
   margin-bottom: 40px;
   display: flex;
+  justify-content: space-between;
 }
 .total-container {
   margin-left: 47%;

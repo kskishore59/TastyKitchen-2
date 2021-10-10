@@ -6,7 +6,6 @@ import './index.css'
 const CartListView = () => (
   <CartContext.Consumer>
     {value => {
-      const {cartList} = value
       const stringifiedCartList = localStorage.getItem('cartData')
       const parsedCartList = JSON.parse(stringifiedCartList)
       return (

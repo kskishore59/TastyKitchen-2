@@ -3,9 +3,18 @@ import {BsFilterLeft} from 'react-icons/bs'
 import './index.css'
 
 const RestaurantHeader = props => {
-  const {sortByOptions, selectedSortByValue, updateSelectedSortByValue} = props
+  const {
+    sortByOptions,
+    selectedSortByValue,
+    updateSelectedSortByValue,
+    onChangeSearchInput,
+  } = props
   const onChangeSortBy = event => {
     updateSelectedSortByValue(event.target.value)
+  }
+
+  const onSearchEnter = event => {
+    onChangeSearchInput(event.target.value)
   }
 
   return (
@@ -16,6 +25,12 @@ const RestaurantHeader = props => {
           Select Your favourite restaurant special dish and make your day
           happy...
         </p>
+        <input
+          type="search"
+          placeholder="Search Restaurant"
+          className="search-input"
+          onChange={onSearchEnter}
+        />
       </div>
       <div className="sort-by-container">
         <BsFilterLeft className="sort-by-icon" />

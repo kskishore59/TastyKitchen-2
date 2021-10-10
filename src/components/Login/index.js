@@ -1,8 +1,5 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-import {Redirect} from 'react-router-dom'
-
-import {AiFillEye, AiFillEyeInvisible} from 'react-icons/ai'
 
 import './index.css'
 
@@ -54,16 +51,8 @@ class Login extends Component {
     }
   }
 
-  onClickShow = () => {
-    this.setState({
-      isPasswordVisible: true,
-    })
-  }
-
-  onClickHide = () => {
-    this.setState({
-      isPasswordVisible: false,
-    })
+  onClickCheckbox = () => {
+    this.setState(prev => ({isPasswordVisible: !prev.isPasswordVisible}))
   }
 
   renderPasswordField = () => {
@@ -81,23 +70,17 @@ class Login extends Component {
             value={password}
             onChange={this.onChangePassword}
           />
-          {isPasswordVisible ? (
-            <button
-              type="button"
-              className="eye-button"
-              onClick={this.onClickHide}
-            >
-              <AiFillEyeInvisible className="eye" />
-            </button>
-          ) : (
-            <button
-              type="button"
-              className="eye-button"
-              onClick={this.onClickShow}
-            >
-              <AiFillEye className="eye" />
-            </button>
-          )}
+        </div>
+        <div className="checkbox-container">
+          <input
+            type="checkbox"
+            id="show-password"
+            checked={isPasswordVisible}
+            onChange={this.onClickCheckbox}
+          />
+          <label htmlFor="show-password" className="input-label">
+            Show Password
+          </label>
         </div>
       </>
     )
@@ -130,14 +113,9 @@ class Login extends Component {
     const {showSubmitError, errorMsg} = this.state
     return (
       <div className="login-form-container">
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png"
-          className="login-website-logo-mobile-image"
-          alt="website logo"
-        />
         <form className="form-container" onSubmit={this.submitForm}>
           <img
-            src="https://res.cloudinary.com/dwyoocqij/image/upload/v1632727627/Vector_ibzmon.png"
+            src="https://res.cloudinary.com/dqnh9af86/image/upload/v1633077683/Frame_274_bxujyh.png"
             className="login-website-logo-desktop-image"
             alt="website logo"
           />

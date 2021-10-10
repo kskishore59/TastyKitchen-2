@@ -60,7 +60,7 @@
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 16px;
   color: #ffa412;
   background-color: transparent;
@@ -68,11 +68,16 @@
   border-radius: 5px;
   outline: none;
   cursor: pointer;
+  padding: 5px;
+  padding-right: 8px;
+  padding-left: 8px;
 }
 
 .cart-quantity-container {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  margin: 0px;
 }
 
 .quantity-controller-button {
