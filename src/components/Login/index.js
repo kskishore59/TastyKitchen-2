@@ -133,6 +133,11 @@ class Login extends Component {
           className="login-image"
           alt="website login"
         />
+        <img
+          src="https://res.cloudinary.com/dqnh9af86/image/upload/v1633902973/Rectangle_1457_1_p3drrt.png"
+          className="mobile-login-image"
+          alt="website-login"
+        />
       </div>
     )
   }

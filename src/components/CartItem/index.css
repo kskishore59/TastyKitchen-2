@@ -2,18 +2,13 @@
   display: flex;
   align-items: center;
   background-color: #f9fbfe;
-  padding: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 @media screen and (min-width: 768px) {
   .cart-item {
     margin-bottom: 32px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .cart-item {
+    padding: 16px;
     padding-left: 36px;
     padding-top: 24px;
     padding-bottom: 24px;
@@ -25,18 +20,32 @@
   width: 100px;
   height: 100px;
   border-radius: 4px;
-  margin-right: 0;
+  margin-right: 10px;
 }
 
 .cart-item-details-container {
-  margin-left: 16px;
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 @media screen and (min-width: 768px) {
   .cart-item-details-container {
     display: flex;
+    flex-direction: row;
     flex-grow: 1;
   }
+  .cart-product-image {
+    width: 100px;
+    height: 120px;
+    border-radius: 4px;
+    margin-right: 0;
+  }
+}
+.cart-product-title-brand-container {
+  width: 50%;
 }
 
 @media screen and (min-width: 768px) {
@@ -75,8 +84,6 @@
 .cart-quantity-container {
   display: flex;
   align-items: center;
-  margin-left: 80px;
-  margin-right: 50px;
 }
 
 .quantity-controller-button {
@@ -98,11 +105,16 @@
     margin-left: 16px;
     margin-right: 16px;
   }
+  .cart-quantity-container {
+    display: flex;
+    align-items: center;
+    margin-left: 80px;
+    margin-right: 50px;
+  }
 }
 
 .total-price-delete-container {
   display: flex;
-  align-items: center;
 }
 
 .cart-total-price {
@@ -112,16 +124,22 @@
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 0;
+  margin-left: 0px;
   min-width: 100px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 200%;
 }
 
 @media screen and (min-width: 768px) {
   .cart-total-price {
     font-size: 18px;
+    margin-left: 200%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .total-price-delete-container {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -134,6 +152,7 @@
   border: none;
   outline: none;
   cursor: pointer;
+  display: none;
 }
 
 @media screen and (min-width: 768px) {

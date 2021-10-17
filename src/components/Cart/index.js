@@ -26,7 +26,7 @@ const Cart = () => (
                   <p className="cart-headings item">Item</p>
                   <p className="cart-headings quantity">Quantity</p>
                   <p className="cart-headings price">Price</p>
-                  <p className="cart-headings">Remove</p>
+                  <p className="cart-headings remove">Remove</p>
                 </div>
                 <CartListView />
                 <CartTotal />

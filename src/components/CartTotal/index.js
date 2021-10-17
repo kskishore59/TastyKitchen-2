@@ -8,11 +8,15 @@ import './index.css'
 const CartTotal = () => (
   <CartContext.Consumer>
     {value => {
-      const {cartList} = value
+      const {cartList, removeCartItems} = value
       let totalOrderCost = 0
       cartList.forEach(eachCartItem => {
         totalOrderCost += eachCartItem.cost * eachCartItem.quantity
       })
+
+      const onOrderPlace = () => {
+        removeCartItems()
+      }
 
       return (
         <>
@@ -24,7 +28,11 @@ const CartTotal = () => (
                 <BiRupee /> {totalOrderCost}
               </p>
               <Link to="/payment">
-                <button type="button" className="order-button">
+                <button
+                  type="button"
+                  className="order-button"
+                  onClick={onOrderPlace}
+                >
                   Place Order
                 </button>
               </Link>

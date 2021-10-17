@@ -91,12 +91,14 @@ class RestaurantDetails extends Component {
           <>
             <div className="restaurant-details-container">
               <div className="restaurant-details">
-                <img
-                  src={imageUrl}
-                  alt="restaurant"
-                  className="restaurant-detail-image"
-                />
-                <div>
+                <div className="restaurant-image-container">
+                  <img
+                    src={imageUrl}
+                    alt="restaurant"
+                    className="restaurant-detail-image"
+                  />
+                </div>
+                <div className="restaurant-details-text-container">
                   <h1 className="restaurant-details-heading">{name}</h1>
                   <p className="restaurant-details-cuisine">{cuisine}</p>
                   <p className="location">{location}</p>

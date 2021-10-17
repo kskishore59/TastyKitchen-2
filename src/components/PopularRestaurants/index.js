@@ -141,29 +141,29 @@ class PopularRestaurants extends Component {
                 />
               ))}
             </ul>
-            <div className="pagination">
-              <button
-                testid="pagination-left-button"
-                className="button"
-                type="button"
-                onClick={this.onClickLeftArrow}
-              >
-                <RiArrowDropLeftLine className="arrow" />
-              </button>
-              <h1 testid="active-page-number" className="page-numbers">
-                {activePage}
-              </h1>
-              <button
-                testid="pagination-right-button"
-                className="button"
-                type="button"
-                onClick={this.onClickRightArrow}
-              >
-                <RiArrowDropRightLine className="arrow" />
-              </button>
-            </div>
           </>
         )}
+        <div className="pagination">
+          <button
+            testid="pagination-left-button"
+            className="button"
+            type="button"
+            onClick={this.onClickLeftArrow}
+          >
+            <RiArrowDropLeftLine className="arrow" />
+          </button>
+          <h1 testid="active-page-number" className="page-numbers">
+            {activePage}
+          </h1>
+          <button
+            testid="pagination-right-button"
+            className="button"
+            type="button"
+            onClick={this.onClickRightArrow}
+          >
+            <RiArrowDropRightLine className="arrow" />
+          </button>
+        </div>
       </>
     )
   }

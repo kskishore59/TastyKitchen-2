@@ -1,4 +1,8 @@
 import {Link, withRouter} from 'react-router-dom'
+import Popup from 'reactjs-popup'
+import {IoMdClose} from 'react-icons/io'
+
+import {FaHamburger} from 'react-icons/fa'
 
 import Cookies from 'js-cookie'
 
@@ -30,10 +34,10 @@ const Header = props => {
         </Link>
         <ul className="nav-menu">
           <Link to="/" className={`nav-link ${activeHome}`}>
-            <li>Home</li>
+            <li className="list-header-item">Home</li>
           </Link>
           <Link to="/cart" className={`nav-link ${activeCart}`}>
-            <li>Cart</li>
+            <li className="list-header-item">Cart</li>
           </Link>
         </ul>
         <button
@@ -44,6 +48,56 @@ const Header = props => {
         >
           Logout
         </button>
+        <div className="popup-container">
+          <Popup
+            modal
+            trigger={
+              <button type="button">
+                <FaHamburger />
+              </button>
+            }
+            className="popup-content"
+          >
+            {close => (
+              <div className="modal-container">
+                <button
+                  type="button"
+                  className="close-button"
+                  onClick={() => close()}
+                >
+                  <IoMdClose size="30" color="#616e7c" />
+                </button>
+                <ul className="nav-link-list">
+                  <li>
+                    <Link
+                      to="/"
+                      className="nav-mobile-link"
+                      onClick={() => close()}
+                    >
+                      <p className="nav-link-item">Home</p>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/cart"
+                      className="nav-mobile-link"
+                      onClick={() => close()}
+                    >
+                      <p className="nav-link-item">Cart</p>
+                    </Link>
+                  </li>
+                  <button
+                    type="button"
+                    className="logout-mobile-btn"
+                    onClick={onClickLogout}
+                  >
+                    Logout
+                  </button>
+                </ul>
+              </div>
+            )}
+          </Popup>
+        </div>
       </div>
     </nav>
   )

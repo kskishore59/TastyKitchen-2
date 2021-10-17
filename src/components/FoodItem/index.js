@@ -41,7 +41,13 @@ class FoodItem extends Component {
 
           return (
             <li testid="foodItem" className="food-item">
-              <img src={imageUrl} alt="food-item" className="food-item-image" />
+              <div>
+                <img
+                  src={imageUrl}
+                  alt="food-item"
+                  className="food-item-image"
+                />
+              </div>
               <div>
                 <h1 className="food-name">{name}</h1>
                 <div className="cost-container">

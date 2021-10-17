@@ -9,11 +9,13 @@ import {
 const Footer = () => (
   <div className="footer-container">
     <div className="footer-heading-container">
-      <img
-        src="https://res.cloudinary.com/dqnh9af86/image/upload/v1632750203/Vector_1_byoodd.png"
-        className="footer-image"
-        alt="website-footer-logo"
-      />
+      <div>
+        <img
+          src="https://res.cloudinary.com/dqnh9af86/image/upload/v1632750203/Vector_1_byoodd.png"
+          className="footer-image"
+          alt="website-footer-logo"
+        />
+      </div>
       <h1 className="footer-heading">Tasty Kitchens</h1>
     </div>
     <p className="footer-description">

@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
+import {Route, Switch, Redirect} from 'react-router-dom'
 
 import Login from './components/Login'
 import Home from './components/Home'
@@ -24,6 +24,10 @@ const getCartListFromLocalStorage = () => {
 class App extends Component {
   state = {
     cartList: getCartListFromLocalStorage(),
+  }
+
+  removeCartItems = () => {
+    this.setState({cartList: []})
   }
 
   addCartItem = foodItem => {
@@ -91,7 +95,7 @@ class App extends Component {
     const {cartList} = this.state
     localStorage.setItem('cartData', JSON.stringify(cartList))
     return (
-      <BrowserRouter>
+      <>
         <CartContext.Provider
           value={{
             cartList,
@@ -99,6 +103,7 @@ class App extends Component {
             deleteCartItem: this.deleteCartItem,
             addQuantity: this.addQuantity,
             decreaseQuantity: this.decreaseQuantity,
+            removeCartItems: this.removeCartItems,
           }}
         >
           <Switch>
@@ -115,7 +120,7 @@ class App extends Component {
             <Redirect to="not-found" />
           </Switch>
         </CartContext.Provider>
-      </BrowserRouter>
+      </>
     )
   }
 }

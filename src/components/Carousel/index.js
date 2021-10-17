@@ -26,6 +26,7 @@ class Carousel extends Component {
       },
       method: 'GET',
     }
+
     const response = await fetch(url, options)
     const data = await response.json()
     const updatedData = data.offers.map(eachItem => ({
@@ -52,7 +53,7 @@ class Carousel extends Component {
     const {carouselList} = this.state
     return (
       <ul className="bg-container">
-        <Slider {...settings}>
+        <Slider {...settings} className="slider">
           {carouselList.map(eachImage => (
             <li key={eachImage.id}>
               <img src={eachImage.imageUrl} alt="offer" className="image" />

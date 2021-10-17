@@ -1,12 +1,49 @@
 .image {
-  margin-top: 3%;
+  margin-top: 10%;
   height: 25%;
   width: 82%;
-  margin-left: 9%;
+  margin-left: 3%;
 }
 .carousel-loader {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3%;
+  margin-top: 25%;
+}
+
+.bg-container {
+  margin-top: 40px;
+}
+
+.slider {
+  display: flex;
+  flex-direction: row;
+  height: 40%;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .image {
+    margin-top: 3%;
+    height: 25%;
+    width: 82%;
+    margin-left: 9%;
+  }
+  .carousel-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25%;
+  }
+
+  .bg-container {
+    margin-top: 40px;
+  }
+
+  .slider {
+    display: flex;
+    flex-direction: row;
+    height: 40%;
+    align-items: center;
+  }
 }
